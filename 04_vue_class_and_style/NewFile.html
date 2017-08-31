@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../assets/vue/vue.js"></script>
+</head>
+<body>
+
+<!-- <div v-bind:class="{ active: isActive}"></div> -->
+
+<!-- <div class="static"
+    v-bind:class="{ active: isActive, 'text-danger': hasError }">
+</div> -->
+
+<div v-bind:class="classObject"></div>
+
+<script>
+/* data: {
+	isActive: true,
+	hasError: false
+} */
+
+var vm = new Vue({
+	data: {
+		isActive: true,
+		error: null
+	},
+	computed: {
+		classObject: function () {
+			return {
+				active: this.isActive && !this.error,
+				'text-danger': this.error && this.error.type === 'fatal',
+			}
+		}
+	}
+});
+</script>
+</body>
+</html>

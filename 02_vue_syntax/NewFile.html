@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<span>Message: {{ msg }}</span>
+
+<span v-once>这个将不会改变: {{ msg }}</span>
+
+<div v-html="reaHtml"></div>
+
+<div v-bind:id="dynamicId"></div>
+<div v-bind:disabled="isButtonDisabled">Button</div>
+
+{{number + 1}}
+{{ ok ? 'YES' : 'No' }}
+{{ message.split('').reverse().join('') }}
+<div v-bind:id="'list-' + id"></div>
+
+<p v-if="seen">现在你看到我了</p>
+
+<a v-bind:href="url"></a>
+
+<a v-on:click="doSomething"></a>
+
+<form v-on:submit.prvent="onSubmit"></form>
+
+{{ message | capitalize }}
+<div v-bind:id="rawId | formatId"></div>
+
+<script>
+new Vue({
+	// ...
+	filters: {
+		capitalize: function (value) {
+			if (!value) return '';
+			value = value.toString();
+			return value.charAt(0).toUpperCase() + value.slice(1);
+		}
+	}
+});
+
+
+
+
+</script>
+</body>
+</html>
