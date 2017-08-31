@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../assets/vue/vue.js"></script>
+</head>
+<body>
+<div id="example-3">
+    <button v-on:click="say('hi')">Say hi</button>
+    <button v-on:click="say('what')">Say what</button>
+    <button v-on:click="warn('Form cannot be submitted yet.', $event)">Submit</button>
+</div>
+
+<script>
+    new Vue({
+        el: '#example-3',
+        methods: {
+            say: function (message) {
+                alert(message)
+            },
+            warn: function (message, event) {
+                if (event) event.preventDefault();
+                alert(message);
+
+            }
+        }
+    })
+</script>
+</body>
+</html>
